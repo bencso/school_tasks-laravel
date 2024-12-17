@@ -12,14 +12,14 @@
                             <label for="eloado" class="form-label">Előadó neve:</label>
                             <input type="text" class="form-control" id="eloado" name="eloado" required>
                             @error('eloado')
-                                <div class="alert alert-danger">{{ $message }}</div>
+                                <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="py-2">
                             <label for="cim" class="form-label">Szám címe:</label>
                             <input type="text" class="form-control" id="cim" name="cim" required>
                             @error('cim')
-                                <div class="alert alert-danger">{{ $message }}</div>
+                                <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="container">
@@ -37,17 +37,17 @@
                                 </select>
                             </div>
                             @error('masodperc')
-                                <div class="alert alert-danger">{{ $message }}</div>
+                                <div class="text-danger">{{ $message }}</div>
                             @enderror
                             @error('perc')
-                                <div class="alert alert-danger">{{ $message }}</div>
+                                <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="py-2">
                             <label for="youtube" class="form-label">YouTube link:</label>
                             <input type="text" class="form-control" id="youtube" name="youtube" required>
                             @error('youtube')
-                                <div class="alert alert-danger">{{ $message }}</div>
+                                <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="py-2">
@@ -55,29 +55,28 @@
                         </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md">
-            <table class="table table-bordered table-striped table-responsive">
-                <tr>
-                    <th>Klipp</th>
-                    <th>Hossz</th>
-                    <th>Youtube link</th>
-                </tr>
-                @foreach ($results as $klipp)
+            <div class="col-md">
+                <table class="table table-bordered table-striped table-responsive">
                     <tr>
-                        <td>
-                            {{ $klipp->eloado }} - {{ $klipp->cim }}
-                        </td>
-                        <td>
-                            {{ explode(':', $klipp->hossz)[1] }}:{{ explode(':', $klipp->hossz)[2] }}
-                        </td>
-                        <td>
-                            <a href="{{ $klipp->youtube }}" target="_blank">{{ $klipp->youtube }}</a>
-                        </td>
+                        <th>Klipp</th>
+                        <th>Hossz</th>
+                        <th>Youtube link</th>
                     </tr>
-                @endforeach
-            </table>
-        </div>
+                    @foreach ($results as $klipp)
+                        <tr>
+                            <td>
+                                {{ $klipp->eloado }} - {{ $klipp->cim }}
+                            </td>
+                            <td>
+                                {{ explode(':', $klipp->hossz)[1] }}:{{ explode(':', $klipp->hossz)[2] }}
+                            </td>
+                            <td>
+                                <a href="{{ $klipp->youtube }}" target="_blank">{{ $klipp->youtube }}</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
         </div>
     </section>
     @if (session()->has('alert'))
