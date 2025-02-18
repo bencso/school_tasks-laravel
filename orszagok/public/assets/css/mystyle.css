@@ -1,0 +1,30 @@
+header h1 {
+    color: white;
+    text-shadow: 1px 1px black;
+}
+
+header {
+    background-image: url(../img/header.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    text-align: justify;
+}
+
+.worldmap {
+    width: 50%;
+    float: left;
+}
+
+@media (max-width: 576px) {
+    .worldmap {
+        width: 100%;
+        float: none;
+    }
+}
